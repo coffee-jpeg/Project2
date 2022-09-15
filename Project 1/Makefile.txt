@@ -1,0 +1,18 @@
+# -*- Makefile -*-
+
+all: main
+
+main: main.o global.o global author.o pubInfo.o isbn.o
+	gcc -o main main.o global.o
+main.o: main.c global.h
+	gcc -c main.c -o main.o 
+global.o: global.c global.h
+	gcc -c global.c -o global.o
+author.o: author.c global.h
+	gcc - c author.c -o author.o
+pubInfo.o: pubInfo.c global.h
+	gcc - c pubInfo.c - o pubInfo.o
+isbn.o: isbn.c global.h
+	gcc - c isbn.c - o isbn.o
+clean:
+    rm *.o ex
